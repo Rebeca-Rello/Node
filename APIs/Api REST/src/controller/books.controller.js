@@ -14,20 +14,29 @@ let libros=[book1, book2, book3];
 
 function getFind(request, response)
 {   
-    let codigo = request.query.id
+    let codigo = request.query.id;
+    let respuesta;
+   
     let bookfound= libros.find(book =>book.id_book == codigo)
-    let respuesta
-    if(libros.length !=null && (!codigo || bookfound != undefined))
-    if(bookfound !=undefined)
-        respuesta ={error:false, codigo:200, data:bookfound}
-    else{
-        respuesta ={error:false, codigo:200, data:libros}
-    }
-    else
-        respuesta ={error:true, codigo:200, mensaje:"El libro no existe"}
+    if(!codigo){
+                
+            respuesta=libros
+    }else{
 
+     if(bookfound != undefined){
+        respuesta= {error:false, codigo:200, 
+            mensaje:"El libro se ha encontrado.", data:bookfound}
+    }
+    else{
+        respuesta= {error:true, codigo:200,
+            mensaje:"No hay coincidencias"}
+        }}
+       
     response.send(respuesta);
-}
+    }
+
+
+
 
 
 function getBooks(request, response)

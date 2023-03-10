@@ -7,7 +7,7 @@ const booksCtrl = require("../controller/books.controller")
 // router.get("/books", booksCtrl.getBooks);
 
 
-router.get("/books", booksCtrl.getFind);
+router.get('/books', booksCtrl.getFind)
 
 router.post("/books", booksCtrl.postBooks);
 
@@ -17,5 +17,5 @@ router.delete("/books", booksCtrl.deleteBooks);
 
 
 
-module.exports=router;
+module.exports = router;
 
