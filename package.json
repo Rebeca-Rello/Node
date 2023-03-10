@@ -2,7 +2,11 @@
   "name": "node",
   "version": "1.0.0",
   "description": "\"# Node\"",
+<<<<<<< HEAD
   "main": "reto1.js",
+=======
+  "main": "index.js",
+>>>>>>> dia3
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/Rebeca-Rello/Node/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/Rebeca-Rello/Node#readme"
+=======
+  "homepage": "https://github.com/Rebeca-Rello/Node#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+>>>>>>> dia3
 }
