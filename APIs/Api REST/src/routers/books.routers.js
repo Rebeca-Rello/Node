@@ -4,7 +4,10 @@ const booksCtrl = require("../controller/books.controller")
 
 // router.get("/", booksCtrl.getStart);
 
-router.get("/books", booksCtrl.getBooks);
+// router.get("/books", booksCtrl.getBooks);
+
+
+router.get("/books", booksCtrl.getFind);
 
 router.post("/books", booksCtrl.postBooks);
 

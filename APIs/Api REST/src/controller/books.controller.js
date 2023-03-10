@@ -14,19 +14,20 @@ let libros=[book1, book2, book3];
 
 function getFind(request, response)
 {   
-    let codigo = request.query.id_book
+    let codigo = request.query.id
+    let bookfound= libros.find(book =>book.id_book == codigo)
     let respuesta
-    if(libros !=null )
-   
-   
-   
+    if(libros.length !=null && (!codigo || bookfound != undefined))
+    if(bookfound !=undefined)
+        respuesta ={error:false, codigo:200, data:bookfound}
+    else{
+        respuesta ={error:false, codigo:200, data:libros}
+    }
+    else
+        respuesta ={error:true, codigo:200, mensaje:"El libro no existe"}
+
     response.send(respuesta);
 }
-
-
-
-
-
 
 
 function getBooks(request, response)
@@ -41,27 +42,34 @@ function getBooks(request, response)
 
 function postBooks(request, response)
 {
-    book = new Book(request.body.title, request.body.type, request.body.author, request.body.price, 
-                request.body.photo, request.body.id_book, request.body.id_user)  
+    let respuesta
+    libros.push(new Book( request.body.title, request.body.type,request.body.author, request.body.price,
+                         request.body.photo, request.body.id_book,  request.body.id_user))
 
-    response.send(book)
+        respuesta ={error:false, codigo:200, 
+            mensaje:"El libro se añadido.", data:libros}
+
+    response.send(respuesta)
 }
+
+
 
 function putBooks(request, response)
 {
     let respuesta
-    if(book !=null)
+    let codigo = libros.findIndex(book =>book.id_book ==  request.body.id_book)
+    if(codigo != -1)
     {
-        books.title  =   request.body.title;
-        book.type   =   request.body.type;
-        book.author =   request.body.author;
-        book.price  =   request.body.price;
-        book.photo  =   request.body.photo;
-        book.id_book =  request.body.id_book;
-        book.id_user =  request.body.id_user;
+        libros[codigo].title  =   request.body.title;
+        libros[codigo].type   =   request.body.type;
+        libros[codigo].author =   request.body.author;
+        libros[codigo].price  =   request.body.price;
+        libros[codigo].photo  =   request.body.photo;
+        libros[codigo].id_book =  request.body.id_book;
+        libros[codigo].id_user =  request.body.id_user;
 
         respuesta = {error:false, codigo:200,
-                    mensaje:"El libro se ha modificado",data:book}
+                    mensaje:"El libro se ha modificado",data:libros}
 
     }
     else 
@@ -70,21 +78,25 @@ function putBooks(request, response)
     response.send(respuesta)
 }
 
+
+
+
 function deleteBooks(request, response)
 {
-    let books
-    if(books !=null)
+    let respuesta
+    let codigo = libros.findIndex(book =>book.id_book ==  request.body.id_book)
+    if(codigo != -1)
     {
-        books = null
-    }
-    response.send(books);
+    libros.splice(codigo, 1)    
+        respuesta ={error:false, codigo:200, 
+            mensaje:"El libro se ha borrado", data:libros}
+
 }
-
-
-
-
-
-
-
+else{
+    respuesta ={error:true, codigo:200, 
+                mensaje:"No existe el libro", data:libros}
+}
+      response.send(respuesta)
+}
 
 module.exports = {getFind, getBooks, postBooks, putBooks, deleteBooks}

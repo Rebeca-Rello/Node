@@ -54,12 +54,18 @@ function putBook(request, response)
 
 function deleteBook(request, response)
 {
-    let book
+    
+    let respuesta
     if(book !=null)
     {
-        book = null
+         book = null;
+         respuesta ={error:false, codigo:200,
+                    mensaje:"Se ha borrado el libro", data:book};
     }
-    response.send(book);
+    else
+    respuesta ={error:true, codigo:200,
+                mensaje:"El libro no existe", data:book}
+    response.send(respuesta);
 }
 
 
