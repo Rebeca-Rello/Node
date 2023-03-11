@@ -38,17 +38,6 @@ function getFind(request, response)
 
 
 
-
-function getBooks(request, response)
-{   
-   let respuesta = libros;
-   response.send(respuesta)
-   
-}
-
-
-
-
 function postBooks(request, response)
 {
     let respuesta
@@ -108,4 +97,4 @@ else{
       response.send(respuesta)
 }
 
-module.exports = {getFind, getBooks, postBooks, putBooks, deleteBooks}
+module.exports = {getFind,postBooks, putBooks, deleteBooks}
