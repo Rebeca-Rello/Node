@@ -25,7 +25,8 @@ function getFind(request, response)
 
      if(bookfound != undefined){
         respuesta= {error:false, codigo:200, 
-            mensaje:"El libro se ha encontrado.", data:bookfound}
+            mensaje:"El libro se ha encontrado.", data:[bookfound]}
+          
     }
     else{
         respuesta= {error:true, codigo:200,
@@ -35,7 +36,7 @@ function getFind(request, response)
     response.send(respuesta);
     }
 
-
+put
 
 
 function postBooks(request, response)
