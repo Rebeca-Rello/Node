@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pokemon.css">
+    <link rel="icon" type="image/jpg" href="assets/PokeBall.png"/>
+
+    
     <title>Pokemon</title>
 </head>
 <body>
     <div class="main">
-        <form class ="form"></form>
+        <div class="navbar">
+            <p><img src="" alt=""></p>
+        </div>
+        <div class="cuerpo"> 
+           
+            <form class="form">
+               <label for="nome">Name:</label>
+               <input type="text" class="infos" id="nome" name="nome">
+               <div class="mario"></div>
+               <button type="button" onclick=consultarPokemon() id="pokemon">Send</button>
+           </form>
+        </div>
 
 
 
-
+        <footer class="footer"></footer>
     </div>
-    
+    <script src = "pokemon.js"></script>
 </body>
 </html>
