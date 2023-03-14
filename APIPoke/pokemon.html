@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pokemon.css">
     <link rel="icon" type="image/jpg" href="assets/PokeBall.png"/>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Tajawal:wght@300&display=swap" rel="stylesheet">
     
     <title>Pokemon</title>
 </head>
@@ -16,13 +19,31 @@
             <p><img src="" alt=""></p>
         </div>
         <div class="cuerpo"> 
-           
+           <div class="intro"> 
             <form class="form">
                <label for="nome">Name:</label>
-               <input type="text" class="infos" id="nome" name="nome">
+               <input type="text" class="infos" id="pokemon" name="nome">
                <div class="mario"></div>
-               <button type="button" onclick=consultarPokemon() id="pokemon">Send</button>
+               <button type="button" onclick=busqueda(pokemon)>Send</button>
            </form>
+        </div>
+           <div class="ficha">
+            <div class="datos">
+              <div class="imagen"> 
+                <img id="pokeImg" width="200px"src="" alt="">
+            </div>
+            <div class="nomTypes"> 
+                <h2 id="piramidepurpura" class="piramidepurpura"></h2>
+                <div class="types" >
+                <p id="types1"></p>
+                <p id="types2"></p>
+                </div>
+            </div>
+
+            </div>
+            
+           </div>
+           
         </div>
 
 
